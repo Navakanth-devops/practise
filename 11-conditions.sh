@@ -12,6 +12,7 @@ if [ $Number -eq 10 ]
 then
 echo "The number $Number is equl to 10"
 else
+echo "not equal $Number to 10"
 
 else
  echo "The $Number is not less than 10"
