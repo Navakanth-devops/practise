@@ -8,6 +8,11 @@ if [ $Number -lt 10 ]
 then 
 echo "The $Number is less than 10"
 
+if [ $Number -eq 10 ]
+then
+echo "The number $Number is equl to 10"
+else
+
 else
  echo "The $Number is not less than 10"
  fi
