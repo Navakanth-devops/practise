@@ -2,7 +2,7 @@
 
 userid=$(id -u)
 
-if [ $userid -ne 10 ]
+if [ $userid -ne 0 ]
 then
 echo "Error: : pls run script in root access"
 else
