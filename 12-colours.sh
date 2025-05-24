@@ -29,7 +29,7 @@ else
 fi
 }
 
-dnf list installed mysql | tee -a $log_file
+dnf list installed mysql 
 if [ $? -ne 0 ]
    then
    echo -e " installing mysql $G installing $N " | tee -a $log_file
@@ -40,7 +40,7 @@ else
 
 fi
 
-dnf list installed python3 | tee -a $log_file
+dnf list installed python3 
 if [ $? -ne 0 ]
    then
    echo -e " installing python3 $G installing $N "  | tee -a $log_file
@@ -51,7 +51,7 @@ else
 
 fi
 
-dnf list installed nginx | tee -a $log_file
+dnf list installed nginx 
 if [ $? -ne 0 ]
    then
    echo -e " installing nginx $G installing $N " | tee -a $log_file
