@@ -6,7 +6,7 @@ Y="\e[33m"
 N="\e[0m"
 USERID=$(id -u)
 Log_folder="/var/log/script_logs"
-SCRIPT_NAME= $(echo $0 |cut -d . -f1)
+SCRIPT_NAME=$(echo $0 |cut -d . -f1)
 log_file="$Log_folder/$SCRIPT_NAME.log"
 
 mkdir -p $Log_folder
@@ -58,6 +58,6 @@ if [ $? -ne 0 ]
    dnf install nginx -y &>>$log_file
    VALIDATE $? nginx
 else 
-   echo -e " $G Already installed $n " &>>$log_file
+   echo -e " $G Already installed $n " &>>$log_files
 
 fi
