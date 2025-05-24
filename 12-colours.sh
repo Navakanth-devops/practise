@@ -61,3 +61,4 @@ else
    echo -e " $G Already installed $n " | tee -a $log_files
 
 fi
+echo " $N "
