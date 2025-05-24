@@ -25,7 +25,7 @@ if [ $1 -eq 0 ]
    then
    echo -e "Installing $2 is $G success $N " | tee -a $log_file
 else
-   echo -e "Installation $2 $R Failure $N " | tee -a $log_file
+   echo -e "Installation $2 is $R Failure $N " | tee -a $log_file
 fi
 }
 
@@ -35,7 +35,7 @@ if [ $? -ne 0 ]
    then
    echo -e " installing mysql $G installing $N " | tee -a $log_file
    dnf install mysql -y | tee -a $log_file
-   VALIDATE $? mysql | tee -a $log_file
+   VALIDATE $? "mysql" 
 else 
    echo -e " $G Already installed $N " | tee -a $log_file
 
@@ -46,7 +46,7 @@ if [ $? -ne 0 ]
    then
    echo -e " installing python3 $G installing $N "  | tee -a $log_file
    dnf install python3 -y | tee -a $log_file
-   VALIDATE $? python3
+   VALIDATE $? "python3"
 else 
    echo -e " $G Already installed $N " | tee -a $log_file
 
@@ -57,7 +57,7 @@ if [ $? -ne 0 ]
    then
    echo -e " installing nginx $G installing $N " | tee -a $log_file
    dnf install nginx -y | tee -a $log_file
-   VALIDATE $? nginx
+   VALIDATE $? "nginx"
 else 
    echo -e " $G Already installed $N " | tee -a $log_files
 
