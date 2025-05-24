@@ -13,3 +13,23 @@ if [ $USERID -ne 0 ]
 else
     echo -e "$G you are running in root access $N"
 fi
+
+VALIDATE(){
+if [ $1 eq 0]
+   then
+   echo -e "Installing $2 is $G success $N "
+else
+   echo -e "Installation $R Failure $N "
+fi
+}
+
+dnf list installed mysql
+if [ $? -ne 0 ]
+   then
+   echo -e " installing myql $G installing $N "
+   dnf install mysql -y
+   VALIDATE $? mysql
+else 
+   echo -e " $G Already installed $n "
+
+fi
