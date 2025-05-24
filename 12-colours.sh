@@ -5,53 +5,59 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 USERID=$(id -u)
+Log_folder="/var/log/script_logs"
+SCRIPT_NAME= $(echo $0 |cut -d . -f1)
+log_file="$Log_folder/$SCRIPT_NAME.log"
+
+mkdir -p $Log_folder
+echo " script execution started: $(date)" &>>$log_file
 
 if [ $USERID -ne 0 ]
     then
-    echo -e " $R you are running user access, pls run in root access $N"
+    echo -e " $R you are running user access, pls run in root access $N" &>>$log_file
     exit 1
 else
-    echo -e "$G you are running in root access $N"
+    echo -e "$G you are running in root access $N" &>>$log_file
 fi
 
 VALIDATE(){
 if [ $1 eq 0]
    then
-   echo -e "Installing $2 is $G success $N "
+   echo -e "Installing $2 is $G success $N " &>>$log_file
 else
-   echo -e "Installation $R Failure $N "
+   echo -e "Installation $R Failure $N " &>>$log_file
 fi
 }
 
-dnf list installed mysql
+dnf list installed mysql &>>$log_file
 if [ $? -ne 0 ]
    then
-   echo -e " installing mysql $G installing $N "
-   dnf install mysql -y
-   VALIDATE $? mysql
+   echo -e " installing mysql $G installing $N " &>>$log_file
+   dnf install mysql -y &>>$log_file
+   VALIDATE $? mysql &>>$log_file
 else 
-   echo -e " $G Already installed $n "
+   echo -e " $G Already installed $n " &>>$log_file
 
 fi
 
-dnf list installed python3
+dnf list installed python3 &>>$log_file
 if [ $? -ne 0 ]
    then
-   echo -e " installing python3 $G installing $N "
-   dnf install python3 -y
+   echo -e " installing python3 $G installing $N "  &>>$log_file
+   dnf install python3 -y &>>$log_file
    VALIDATE $? python3
 else 
-   echo -e " $G Already installed $n "
+   echo -e " $G Already installed $n " &>>$log_file
 
 fi
 
-dnf list installed nginx
+dnf list installed nginx &>>$log_file
 if [ $? -ne 0 ]
    then
-   echo -e " installing nginx $G installing $N "
-   dnf install nginx -y
+   echo -e " installing nginx $G installing $N " &>>$log_file
+   dnf install nginx -y &>>$log_file
    VALIDATE $? nginx
 else 
-   echo -e " $G Already installed $n "
+   echo -e " $G Already installed $n " &>>$log_file
 
 fi
