@@ -20,6 +20,16 @@ else
     echo -e "$G you are running in root access $N" | tee -a $log_file
 fi
 
+VALIDATE(){
+if [ $1 -eq 0 ]
+   then
+   echo -e "Installing $2 is $G success $N " | tee -a $log_file
+else
+   echo -e "Installation $2 $R Failure $N " | tee -a $log_file
+fi
+}
+
+
 dnf list installed mysql 
 if [ $? -ne 0 ]
    then
