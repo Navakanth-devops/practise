@@ -36,7 +36,7 @@ if [ $? -ne 0 ]
    dnf install mysql -y | tee -a $log_file
    VALIDATE $? mysql | tee -a $log_file
 else 
-   echo -e " $G Already installed $n " | tee -a $log_file
+   echo -e " $G Already installed $N " | tee -a $log_file
 
 fi
 
@@ -47,7 +47,7 @@ if [ $? -ne 0 ]
    dnf install python3 -y | tee -a $log_file
    VALIDATE $? python3
 else 
-   echo -e " $G Already installed $n " | tee -a $log_file
+   echo -e " $G Already installed $N " | tee -a $log_file
 
 fi
 
@@ -58,7 +58,7 @@ if [ $? -ne 0 ]
    dnf install nginx -y | tee -a $log_file
    VALIDATE $? nginx
 else 
-   echo -e " $G Already installed $n " | tee -a $log_files
+   echo -e " $G Already installed $N " | tee -a $log_files
 
 fi
-echo  -e " $N "
+
