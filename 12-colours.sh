@@ -26,9 +26,31 @@ fi
 dnf list installed mysql
 if [ $? -ne 0 ]
    then
-   echo -e " installing myql $G installing $N "
+   echo -e " installing mysql $G installing $N "
    dnf install mysql -y
    VALIDATE $? mysql
+else 
+   echo -e " $G Already installed $n "
+
+fi
+
+dnf list installed python3
+if [ $? -ne 0 ]
+   then
+   echo -e " installing python3 $G installing $N "
+   dnf install python3 -y
+   VALIDATE $? python3
+else 
+   echo -e " $G Already installed $n "
+
+fi
+
+dnf list installed nginx
+if [ $? -ne 0 ]
+   then
+   echo -e " installing nginx $G installing $N "
+   dnf install nginx -y
+   VALIDATE $? nginx
 else 
    echo -e " $G Already installed $n "
 
