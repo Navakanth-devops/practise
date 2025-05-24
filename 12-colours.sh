@@ -10,7 +10,7 @@ SCRIPT_NAME=$(echo $0 |cut -d . -f1)
 log_file="$Log_folder/$SCRIPT_NAME.log"
 
 mkdir -p $Log_folder
-echo " script execution started: $(date)" | tee -a$log_file
+echo " script execution started: $(date)" | tee -a $log_file
 
 if [ $USERID -ne 0 ]
     then
@@ -61,4 +61,4 @@ else
    echo -e " $G Already installed $n " | tee -a $log_files
 
 fi
-echo " $N "
+echo  -e " $N "
