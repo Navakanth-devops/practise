@@ -6,7 +6,7 @@ Y=(\e[33m)
 N=(\e[0m)
 USERID=$(id -u)
 
-if ($USERID -ne 0)
+if [ $USERID -ne 0 ]
     then
     echo -e " $R you are running user access, pls run in root access $N"
     exit 1
